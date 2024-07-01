@@ -372,6 +372,8 @@ of code below the Schedule `<h2>` header below with
 
 <h2 id="schedule">Schedule</h2>
 
+<p>This software carpentry uses the core lessons on <a href="https://swcarpentry.github.io/shell-novice/">The Unix Shell</a>, <a href="https://swcarpentry.github.io/git-novice/">Version Control with Git</a>, and <a href="https://swcarpentry.github.io/python-novice-gapminder/">Plotting and Programming in Python</a></p>
+
 {% if site.carpentry == "swc" %}
 {% include swc/schedule.html %}
 {% elsif site.carpentry == "dc" %}
