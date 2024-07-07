@@ -9,6 +9,7 @@
             margin: 0;
             padding: 0;
             background: #f9f9f9;
+            font-size: large;
         }
         .container {
             width: 210mm; /* A4 width */
@@ -21,12 +22,13 @@
         h1, h2 {
             color: #333;
             text-align: center;
+            margin: 10px 0;
         }
         .section {
             margin-top: 20px;
         }
         .info {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .info strong {
             color: #333;
@@ -37,22 +39,14 @@
             color: #777;
             font-size: 14px;
         }
-        .button {
-            display: inline-block;
-            background: #007bff;
-            color: #ffffff;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
         .logos {
             display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
+            justify-content: space-between;
+            margin-bottom: 60px;
         }
         .logos img {
-            max-height: 50px;
+            max-height: 60px;
+            margin: 0 10px;
         }
         .qr-codes {
             display: flex;
@@ -97,7 +91,7 @@
         </div>
         <div class="section">
             <h2>Instructors and Helpers</h2>
-            <ul>
+            <ul style="padding-left: 20px;">
                 {% for instructor in instructor %}
                 <li>{{ instructor }}</li>
                 {% endfor %}
@@ -112,17 +106,15 @@
         </div>
         <div class="qr-codes">
             <div class="qr-code">
-                <img src="{{ registration_qr_path }}" alt="Registration QR Code" style="max-width: 200px;">
+                <img src="{{ registration_qr_path }}" alt="Registration QR Code" style="max-width: 220px;">
                 <p>Registration QR Code</p>
             </div>
             <div class="qr-code">
-                <img src="{{ workshop_website_qr_path }}" alt="Website QR Code" style="max-width: 200px;">
+                <img src="{{ workshop_website_qr_path }}" alt="Website QR Code" style="max-width: 220px;">
                 <p>Website QR Code</p>
             </div>
         </div>
-        <div class="footer">
-            <p>Please contact {{ workshop_contact }} <a href="mailto:{{ workshop_contact_email }}">{{ workshop_contact_email }}</a> for more information.</p>
-        </div>
+        <p class="info">Please contact {{ workshop_contact }} at <a href="mailto:{{ workshop_contact_email }}">{{ workshop_contact_email }}</a> for more information.</p>
     </div>
 </body>
 </html>
