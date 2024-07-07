@@ -26,32 +26,24 @@ def generate_qr_code(data, file_path):
     img.save(file_path)
     return file_path
 
-# Step 1: Read and parse YAML header from index.md
 index_md_data = read_yaml_header_from_md('index.md')
 
-# Step 2: Read and parse YAML content from _config.yml
 config_data = read_yaml_from_file('_config.yml')
 
-# Step 3: Read and parse YAML content from flyer.yml
 flyer_data = read_yaml_from_file('flyer.yml')
 
-# Step 4: Combine all data
 combined_data = {**index_md_data, **config_data, **flyer_data}
 
-# Generate QR Codes for registration link and workshop website
 registration_qr_path = generate_qr_code(combined_data['registration_link'], 'workshop_assets/img/registration_qr.png')
 workshop_website_qr_path = generate_qr_code(combined_data['workshop_website'], 'workshop_assets/img/workshop_website_qr.png')
 
-# Add QR code paths to combined data
 combined_data['registration_qr_path'] = registration_qr_path
 combined_data['workshop_website_qr_path'] = workshop_website_qr_path
 
-# Step 5: Render the Jinja template
 env = Environment(loader=FileSystemLoader('.'), autoescape=True)
 template = env.get_template('flyer_template.html')
 output = template.render(combined_data)
 
-# Step 6: Output the rendered HTML
 with open('workshop_flyer.html', 'w') as output_file:
     output_file.write(output)
 

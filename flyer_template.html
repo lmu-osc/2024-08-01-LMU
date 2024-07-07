@@ -18,6 +18,7 @@
             background: white;
             margin: auto;
             box-shadow: 0 0 5mm rgba(0,0,0,0.1);
+            border: 2px dashed #333;
         }
         h1, h2 {
             color: #333;
@@ -102,7 +103,7 @@
         </div>
         <div class="section">
             <h2>About the Workshop</h2>
-            <p>{{ description }}</p>
+            <p><strong>Topics: {% for topic in topics %}{{ topic }}{% if not loop.last %}, {% endif %}{% endfor %}</strong></p>            <p>{{ description }}</p>
         </div>
         <div class="qr-codes">
             <div class="qr-code">
