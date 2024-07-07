@@ -1,0 +1,14 @@
+logo1_url: workshop_assets/img/LMU-OSC_logo.jpg
+logo2_url: workshop_assets/img/GSN-Logo_ab35mmBreite_RGB.jpg
+logo3_url: workshop_assets/img/bccn_logo_munich.gif
+logo4_url:
+description: |
+  The workshop will cover the Unix shell, version control in git, and programming in Python.
+
+  It is free and open to researchers, staff, and students.
+
+  This workshop teaches core computing skills that will help you be more productive and effective. We will alternate short tutorials with hands-on practical exercises. Participants will be encouraged to help one another and to apply what they have learned to their own research problems.
+registration_link: https://www.pretix.osc.lmu.de/lmu-osc/swc-2024-08-01/
+workshop_website: https://lmu-osc.github.io/2024-08-01-LMU/
+workshop_contact: Dr. Malika Ihle (LMU-OSC scientific coordinator)
+workshop_contact_email: malika.ihle@lmu.de

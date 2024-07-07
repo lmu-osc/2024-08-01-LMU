@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop Flyer: {{ title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+        }
+        .container {
+            width: 210mm; /* A4 width */
+            height: 297mm; /* A4 height */
+            padding: 20mm;
+            background: white;
+            margin: auto;
+            box-shadow: 0 0 5mm rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        .info {
+            margin-bottom: 10px;
+        }
+        .info strong {
+            color: #333;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+        }
+        .button {
+            display: inline-block;
+            background: #007bff;
+            color: #ffffff;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .logos {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .logos img {
+            max-height: 50px;
+        }
+        .qr-codes {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .qr-code {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logos">
+            {% if carpentry == "swc" %}
+            <img src="assets/img/swc-logo-blue.png" alt="SWC Logo">
+            {% elif carpentry == "dc" %}
+            <img src="assets/img/dc-logo-black.svg" alt="DC Logo">
+            {% elif carpentry == "lc" %}
+            <img src="assets/img/lc-logo-black.png" alt="LC Logo">
+            {% endif %}
+            {% if logo1_url %}
+            <img src="{{ logo1_url }}" alt="Logo 1">
+            {% endif %}
+            {% if logo2_url %}
+            <img src="{{ logo2_url }}" alt="Logo 2">
+            {% endif %}
+            {% if logo3_url %}
+            <img src="{{ logo3_url }}" alt="Logo 3">
+            {% endif %}
+            {% if logo4_url %}
+            <img src="{{ logo4_url }}" alt="Logo 4">
+            {% endif %}
+        </div>
+        <h1>{{ title }}</h1>
+        <div class="section">
+            <h2>Details</h2>
+            <p class="info"><strong>Venue:</strong> {{ venue }}</p>
+            <p class="info"><strong>Address:</strong> {{ address }}</p>
+            <p class="info"><strong>Date:</strong> {{ humandate }}</p>
+            <p class="info"><strong>Time:</strong> {{ humantime }}</p>
+        </div>
+        <div class="section">
+            <h2>Instructors and Helpers</h2>
+            <ul>
+                {% for instructor in instructor %}
+                <li>{{ instructor }}</li>
+                {% endfor %}
+                {% for helper in helper %}
+                <li>{{ helper }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="section">
+            <h2>About the Workshop</h2>
+            <p>{{ description }}</p>
+        </div>
+        <div class="qr-codes">
+            <div class="qr-code">
+                <img src="{{ registration_qr_path }}" alt="Registration QR Code" style="max-width: 200px;">
+                <p>Registration QR Code</p>
+            </div>
+            <div class="qr-code">
+                <img src="{{ workshop_website_qr_path }}" alt="Website QR Code" style="max-width: 200px;">
+                <p>Website QR Code</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Please contact {{ workshop_contact }} <a href="mailto:{{ workshop_contact_email }}">{{ workshop_contact_email }}</a> for more information.</p>
+        </div>
+    </div>
+</body>
+</html>
