@@ -409,6 +409,11 @@ This is the other place where people frequently make mistakes, so
 please preview your site before committing, and make sure to run
 'tools/check' as well.
 {% endcomment %}
+<h2 id="supplementary-pdf">Getting Ready for the Workshop</h2>
+<p>
+  <embed src="files/Script_toKnowBefore.pdf" width="100%" height="600px" frameborder="0" scrolling="auto">
+</p>
+
 
 <h2 id="setup">Setup</h2>
 
