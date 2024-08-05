@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop Flyer: {{ title }}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f4f8;
+            font-size: medium;
+        }
+        .container {
+            width: 210mm; /* A4 width */
+            height: 297mm; /* A4 height */
+            padding: 20mm;
+            background: white;
+            margin: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            border: 1px solid #264653;
+        }
+        h1 {
+            color: #006436;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #264653;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.8em;
+        }
+        .section {
+            margin-top: 30px;
+        }
+        .info {
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+        .info strong {
+            color: #e76f51;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        .logos {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .logos img {
+            max-height: 60px;
+            margin: 0 20px;
+        }
+        .qr-codes {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .qr-code {
+            text-align: center;
+        }
+        .qr-code img {
+            border: 2px dashed #264653;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logos" style="margin-bottom: 60px;">
+            {% if carpentry == "swc" %}
+            <img src="assets/img/swc-logo-blue.png" alt="SWC Logo">
+            {% elif carpentry == "dc" %}
+            <img src="assets/img/dc-logo-black.svg" alt="DC Logo">
+            {% elif carpentry == "lc" %}
+            <img src="assets/img/lc-logo-black.png" alt="LC Logo">
+            {% endif %}
+            {% if logo1_url %}
+            <img src="{{ logo1_url }}" alt="Logo 1">
+            {% endif %}
+            {% if logo2_url %}
+            <img src="{{ logo2_url }}" alt="Logo 2">
+            {% endif %}
+            {% if logo3_url %}
+            <img src="{{ logo3_url }}" alt="Logo 3">
+            {% endif %}
+            {% if logo4_url %}
+            <img src="{{ logo4_url }}" alt="Logo 4">
+            {% endif %}
+        </div>
+        <h1>{{ title }}</h1>
+        <div class="section">
+            <p class="info"><strong>Venue:</strong> {{ venue }}</p>
+            <p class="info"><strong>Address:</strong> {{ address }}</p>
+            <p class="info"><strong>Date:</strong> {{ humandate }}</p>
+            <p class="info"><strong>Time:</strong> {{ humantime }}</p>
+        </div>
+        <div class="section">
+            <h2>Instructors and Helpers</h2>
+            <ul style="padding-left: 20px;">
+                {% for instructor in instructor %}
+                <li>{{ instructor }}</li>
+                {% endfor %}
+                {% for helper in helper %}
+                <li>{{ helper }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="section">
+            <h2>About the Workshop</h2>
+            <p><strong>Topics: {% for topic in topics %}{{ topic }}{% if not loop.last %}, {% endif %}{% endfor %}</strong></p>
+            <p>{{ description }}</p>
+        </div>
+        <div class="qr-codes">
+            <div class="qr-code">
+                <img src="{{ registration_qr_path }}" alt="Registration QR Code" style="max-width: 220px;">
+                <p>Registration QR Code</p>
+            </div>
+            <div class="qr-code">
+                <img src="{{ workshop_website_qr_path }}" alt="Website QR Code" style="max-width: 220px;">
+                <p>Website QR Code</p>
+            </div>
+        </div>
+        <p class="info">Please contact {{ workshop_contact }} at <a href="mailto:{{ workshop_contact_email }}">{{ workshop_contact_email }}</a> for more information.</p>
+    </div>
+</body>
+</html>
